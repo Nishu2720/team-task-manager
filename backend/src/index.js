@@ -15,19 +15,31 @@ const app = express();
 app.use(helmet());
 
 // CORS: allow frontend origin + localhost in dev
+// 1. Define allowed origins
 const allowedOrigins = [
-  process.env.FRONTEND_URL,
+  process.env.FRONTEND_URL, 
   'http://localhost:5173',
-  'http://localhost:4173',
+  'http://localhost:4173'
 ].filter(Boolean);
 
+// 2. Setup CORS middleware
 app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (curl, Postman, mobile apps)
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
     if (!origin) return callback(null, true);
-    if (process.env.NODE_ENV !== 'production') return callback(null, true);
-    if (allowedOrigins.includes(origin)) return callback(null, true);
-    callback(new Error(`CORS blocked origin: ${origin}`));
+
+    // In development mode, allow everything
+    if (process.env.NODE_ENV !== 'production') {
+      return callback(null, true);
+    }
+
+    // In production, check if the origin is in our list
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      return callback(null, true);
+    } else {
+      // If you see a red line here, it is just a spellchecker!
+      return callback(new Error('CORS blocked origin: ' + origin));
+    }
   },
   credentials: true,
 }));
