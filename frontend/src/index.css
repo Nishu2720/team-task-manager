@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap');
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    background: #020209;
+    color: #f1f0ff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5 { font-family: 'Syne', sans-serif; }
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.3); border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(139,92,246,0.6); }
+  ::selection { background: rgba(139,92,246,0.4); }
+}
+
+@layer components {
+  /* Glass card */
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-2xl;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-white/[0.06] hover:border-white/[0.14] hover:shadow-glow-sm;
+  }
+  .glass-strong {
+    @apply bg-white/[0.06] backdrop-blur-2xl border border-white/[0.12] rounded-2xl;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+
+  /* Gradient button */
+  .btn-grad {
+    @apply relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           font-semibold text-sm text-white overflow-hidden transition-all duration-200
+           active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed select-none;
+    background: linear-gradient(135deg, #7c3aed 0%, #2563eb 60%, #db2777 100%);
+    background-size: 200% 200%;
+  }
+  .btn-grad::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-200;
+    background: linear-gradient(135deg, #9333ea 0%, #3b82f6 60%, #ec4899 100%);
+  }
+  .btn-grad:hover::before { @apply opacity-100; }
+  .btn-grad span { @apply relative z-10; }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
+           text-sm font-medium text-white/60 border border-white/10
+           hover:text-white hover:border-white/25 hover:bg-white/[0.05]
+           transition-all duration-200 active:scale-[0.97]
+           disabled:opacity-40 disabled:cursor-not-allowed select-none;
+  }
+  .btn-sm { @apply px-3 py-1.5 text-xs rounded-lg; }
+  .btn-icon {
+    @apply w-8 h-8 flex items-center justify-center rounded-lg text-white/40
+           hover:text-white hover:bg-white/[0.08] transition-all duration-150;
+  }
+
+  /* Input */
+  .inp {
+    @apply w-full rounded-xl px-4 py-3 text-sm text-white placeholder-white/25
+           outline-none transition-all duration-200 border;
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.1);
+  }
+  .inp:focus {
+    border-color: rgba(139,92,246,0.6);
+    background: rgba(139,92,246,0.05);
+    box-shadow: 0 0 0 3px rgba(139,92,246,0.12);
+  }
+  .inp-error {
+    border-color: rgba(239,68,68,0.5) !important;
+    background: rgba(239,68,68,0.04) !important;
+  }
+  .inp-error:focus {
+    box-shadow: 0 0 0 3px rgba(239,68,68,0.12) !important;
+  }
+  .field { @apply mb-4; }
+  .field label {
+    @apply block text-[11px] font-semibold uppercase tracking-widest mb-2;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* Status / priority pills */
+  .pill { @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-semibold whitespace-nowrap; }
+  .pill-todo    { background: rgba(100,116,139,0.15); color: #94a3b8; }
+  .pill-inprog  { background: rgba(59,130,246,0.15);  color: #60a5fa; }
+  .pill-done    { background: rgba(16,185,129,0.15);  color: #34d399; }
+  .pill-overdue { background: rgba(239,68,68,0.15);   color: #f87171; }
+  .pill-high    { background: rgba(239,68,68,0.15);   color: #f87171; }
+  .pill-medium  { background: rgba(245,158,11,0.15);  color: #fbbf24; }
+  .pill-low     { background: rgba(16,185,129,0.15);  color: #34d399; }
+  .pill-admin   { background: rgba(139,92,246,0.15);  color: #a78bfa; }
+  .pill-member  { background: rgba(59,130,246,0.15);  color: #60a5fa; }
+
+  /* Skeleton */
+  .skel {
+    @apply rounded-lg;
+    background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s linear infinite;
+  }
+
+  /* Spinner */
+  .spinner {
+    @apply inline-block rounded-full border-2;
+    border-color: rgba(255,255,255,0.1);
+    border-top-color: #8b5cf6;
+    animation: spin .6s linear infinite;
+    width: 1rem; height: 1rem;
+  }
+
+  /* Neon dot */
+  .neon-dot {
+    @apply w-2 h-2 rounded-full;
+    box-shadow: 0 0 6px currentColor;
+  }
+
+  /* Gradient text */
+  .grad-text {
+    background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #f472b6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glowing border */
+  .glow-border {
+    @apply relative;
+  }
+  .glow-border::before {
+    content: '';
+    @apply absolute -inset-[1px] rounded-2xl opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(139,92,246,0.6), rgba(59,130,246,0.6), rgba(236,72,153,0.6));
+    z-index: -1;
+  }
+  .glow-border:hover::before { @apply opacity-100; }
+
+  /* Avatar gradient ring */
+  .av-ring {
+    @apply p-[2px] rounded-full;
+    background: linear-gradient(135deg, #7c3aed, #2563eb, #db2777);
+  }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes blob { 0%,100%{border-radius:60% 40% 30% 70% / 60% 30% 70% 40%} 50%{border-radius:30% 60% 70% 40% / 50% 60% 30% 60%} }
+.animate-blob { animation: blob 8s ease-in-out infinite; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
