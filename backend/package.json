@@ -22,8 +22,12 @@
     "express-validator": "^7.0.1",
     "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
+<<<<<<< HEAD
     "morgan": "^1.10.0",
     "nodemailer": "^8.0.7"
+=======
+    "morgan": "^1.10.0"
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
   },
   "devDependencies": {
     "nodemon": "^3.1.0",

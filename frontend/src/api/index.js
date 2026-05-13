@@ -27,6 +27,7 @@ api.interceptors.response.use(
 );
 
 export const authApi = {
+<<<<<<< HEAD
   signup:         (data)  => api.post('/auth/signup', data),
   login:          (data)  => api.post('/auth/login',  data),
   me:             ()      => api.get('/auth/me'),
@@ -57,6 +58,36 @@ export const usersApi = {
   list:       ()         => api.get('/users'),
   updateRole: (id, role) => api.patch(`/users/${id}/role`, { role }),
   delete:     (id)       => api.delete(`/users/${id}`),
+=======
+  signup:   (data) => api.post('/auth/signup', data),
+  login:    (data) => api.post('/auth/login',  data),
+  me:       ()     => api.get('/auth/me'),
+  updateMe: (data) => api.patch('/auth/me',    data),
+};
+
+export const projectsApi = {
+  list:         ()             => api.get('/projects'),
+  get:          (id)           => api.get(`/projects/${id}`),
+  create:       (data)         => api.post('/projects', data),
+  update:       (id, data)     => api.patch(`/projects/${id}`, data),
+  delete:       (id)           => api.delete(`/projects/${id}`),
+  addMember:    (id, email)    => api.post(`/projects/${id}/members`, { email }),
+  removeMember: (id, userId)   => api.delete(`/projects/${id}/members/${userId}`),
+};
+
+export const tasksApi = {
+  list:          (params)           => api.get('/tasks', { params }),
+  listByProject: (projectId, params)=> api.get(`/projects/${projectId}/tasks`, { params }),
+  create:        (projectId, data)  => api.post(`/projects/${projectId}/tasks`, data),
+  update:        (id, data)         => api.patch(`/tasks/${id}`, data),
+  delete:        (id)               => api.delete(`/tasks/${id}`),
+};
+
+export const usersApi = {
+  list:       ()           => api.get('/users'),
+  updateRole: (id, role)   => api.patch(`/users/${id}/role`, { role }),
+  delete:     (id)         => api.delete(`/users/${id}`),
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
 };
 
 export const dashboardApi = {

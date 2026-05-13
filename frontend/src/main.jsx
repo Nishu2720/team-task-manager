@@ -15,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           position="bottom-right"
           toastOptions={{
             style: {
+<<<<<<< HEAD
               background: 'rgba(15,15,30,0.95)',
               backdropFilter: 'blur(20px)',
               color: '#f1f0ff',
@@ -27,6 +28,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             },
             success: { iconTheme: { primary: '#34d399', secondary: 'transparent' } },
             error:   { iconTheme: { primary: '#f87171', secondary: 'transparent' } },
+=======
+              background: '#1f2937',
+              color: '#f9fafb',
+              border: '1px solid #374151',
+              borderRadius: '10px',
+              fontSize: '13px',
+            },
+            success: { iconTheme: { primary: '#34d399', secondary: '#1f2937' } },
+            error:   { iconTheme: { primary: '#f87171', secondary: '#1f2937' } },
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
           }}
         />
       </AuthProvider>

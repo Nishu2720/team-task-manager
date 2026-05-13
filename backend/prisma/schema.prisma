@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// This is your Prisma schema file
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
 generator client {
   provider = "prisma-client-js"
 }
@@ -16,10 +20,13 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+<<<<<<< HEAD
   // Password reset fields
   resetToken       String?
   resetTokenExpiry DateTime?
 
+=======
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
   ownedProjects   Project[]       @relation("ProjectOwner")
   projectMembers  ProjectMember[]
   assignedTasks   Task[]          @relation("TaskAssignee")

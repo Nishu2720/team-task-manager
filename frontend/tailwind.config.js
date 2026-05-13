@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+<<<<<<< HEAD
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -53,6 +54,29 @@ export default {
         'glow-pink':'0 0 30px rgba(236,72,153,0.25)',
         'glass':    '0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)',
         'card':     '0 4px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)',
+=======
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          50:  '#eeedfe',
+          100: '#cecbf6',
+          200: '#afa9ec',
+          400: '#7c6ff7',
+          500: '#6059e8',
+          600: '#534ab7',
+          800: '#3c3489',
+          900: '#26215c',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['Syne', 'ui-sans-serif', 'sans-serif'],
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
       },
     },
   },

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
 # ⚡ TaskFlow — Team Task Manager
 
 Full-stack team task management with role-based access control.  
@@ -206,3 +210,10 @@ Railway auto-runs: `npx prisma migrate deploy && node src/index.js`
 | Validation| express-validator                   |
 | Security  | Helmet, CORS, rate-limiter          |
 | Deploy    | Railway                             |
+<<<<<<< HEAD
+=======
+=======
+# team-task-manager
+Full Stack Team Task Manager Application
+>>>>>>> 6ad85a031ab39ba96a90dbc58ecae00e6dc63248
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90

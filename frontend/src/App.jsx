@@ -10,10 +10,15 @@ import Team      from './pages/Team';
 function PrivateRoute({ children }) {
   const { user, loading } = useAuth();
   if (loading) return (
+<<<<<<< HEAD
     <div className="flex items-center justify-center h-screen gap-3 text-white/30 text-sm"
       style={{ background: '#020209' }}>
       <span className="spinner" style={{ width: 20, height: 20 }} />
       <span>Loading TaskFlow…</span>
+=======
+    <div className="flex items-center justify-center h-screen bg-gray-950 gap-3 text-gray-400 text-sm">
+      <span className="spinner" /> Loading…
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
     </div>
   );
   return user ? children : <Navigate to="/login" replace />;
@@ -21,7 +26,11 @@ function PrivateRoute({ children }) {
 
 function PublicRoute({ children }) {
   const { user, loading } = useAuth();
+<<<<<<< HEAD
   if (loading) return <div className="h-screen" style={{ background: '#020209' }} />;
+=======
+  if (loading) return <div className="h-screen bg-gray-950" />;
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
   return user ? <Navigate to="/dashboard" replace /> : children;
 }
 
@@ -31,11 +40,19 @@ export default function App() {
       <Route path="/login"  element={<PublicRoute><AuthPage mode="login"  /></PublicRoute>} />
       <Route path="/signup" element={<PublicRoute><AuthPage mode="signup" /></PublicRoute>} />
       <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
+<<<<<<< HEAD
         <Route index            element={<Navigate to="/dashboard" replace />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="projects"  element={<Projects />} />
         <Route path="tasks"     element={<Tasks />} />
         <Route path="team"      element={<Team />} />
+=======
+        <Route index                element={<Navigate to="/dashboard" replace />} />
+        <Route path="dashboard"     element={<Dashboard />} />
+        <Route path="projects"      element={<Projects />} />
+        <Route path="tasks"         element={<Tasks />} />
+        <Route path="team"          element={<Team />} />
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
       </Route>
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>

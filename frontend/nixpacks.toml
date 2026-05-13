@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # Tells Railpack this is a Node.js application
+=======
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
 [phases.setup]
 nixPkgs = ["nodejs_20"]
 
@@ -9,4 +12,8 @@ cmds = ["npm install"]
 cmds = ["npm run build"]
 
 [start]
+<<<<<<< HEAD
 cmd = "npx serve -s dist -l $PORT"
+=======
+cmd = "npm start"
+>>>>>>> de827203aca71338eef4788aa9d8ef07728a1c90
